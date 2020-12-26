@@ -52,6 +52,8 @@
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-dbcp:9.0.10" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.10" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.1.6.Final" />
+          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

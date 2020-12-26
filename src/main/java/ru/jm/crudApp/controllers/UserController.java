@@ -4,9 +4,12 @@ package ru.jm.crudApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.jm.crudApp.models.User;
 import ru.jm.crudApp.service.UserService;
+
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -32,7 +35,12 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User user) {
+    public String saveUser(@ModelAttribute("user") @Valid User user,
+                           BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "first/addNewUser";
+        }
+
         userService.saveUser(user);
         return "redirect:/";
     }
@@ -45,7 +53,12 @@ public class UserController {
     }
 
     @PatchMapping(value = "/update/{id}")
-    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
+                         @PathVariable("id") int id) {
+        if (bindingResult.hasErrors()) {
+            return "first/update";
+        }
+
         userService.updateUser(id, user);
         return "redirect:/";
     }

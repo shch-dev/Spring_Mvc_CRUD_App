@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import ru.jm.crudApp.models.User;
 import ru.jm.crudApp.service.UserService;
 
@@ -38,13 +37,14 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PatchMapping("/update/{id}")
+    @GetMapping("/update/{id}")
     public String editUser(@PathVariable(name = "id") int id, Model model) {
+
         model.addAttribute("user", userService.getUser(id));
         return "first/update";
     }
 
-    @GetMapping("/{id}")
+    @PatchMapping(value = "/update/{id}")
     public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.updateUser(id, user);
         return "redirect:/";

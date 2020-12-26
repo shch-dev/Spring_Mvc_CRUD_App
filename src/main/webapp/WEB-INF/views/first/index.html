@@ -30,7 +30,7 @@
             <td th:text="${user.email}">Value</td>
             <td>
 
-                <a th:method="PATCH" th:href="@{'/update/' + ${user.id}}">Update</a>
+                <a th:method="POST" th:href="@{'/update/' + ${user.id}}">Update</a>
 
                 <a th:method="DELETE" th:href="@{'/delete/' + ${user.id}}">Delete</a>
 

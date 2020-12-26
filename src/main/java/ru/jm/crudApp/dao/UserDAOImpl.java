@@ -44,6 +44,7 @@ public class UserDAOImpl implements UserDAO {
         User user = entityManager.find(User.class, id);
         user.setName(userUpdate.getName());
         user.setSurname(userUpdate.getSurname());
+        user.setEmail(userUpdate.getEmail());
         entityManager.flush();
     }
 

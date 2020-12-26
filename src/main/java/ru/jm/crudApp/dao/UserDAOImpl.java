@@ -47,5 +47,4 @@ public class UserDAOImpl implements UserDAO {
         user.setEmail(userUpdate.getEmail());
         entityManager.flush();
     }
-
 }
